@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} STUDENT ACCOUNT {% endblock %}
+
+{% block content %} 
+    <h1>STUDENT ACCOUNT LIST:</h1>
+    {% for x in account %}
+        <ul>
+            <li> 
+                <h1>{{ x.username }}</h1>
+                <p>Password: {{ x.password }}</p>
+                <p>Student ID: {{ x.studid }} </p>
+                <p>Cellphone No.: {{ x.cpno }} </p>
+                <p>Email: {{ x.email }} </p>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
