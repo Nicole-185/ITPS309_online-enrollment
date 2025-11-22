@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} STUDENT FAMILY BACKGROUND {% endblock %}
+
+{% block content %} 
+    <h1>STUDENT FAMILY BACKGROUND LIST:</h1>
+    {% for x in family %}
+        <ul>
+            <li> 
+                <h1>{{ x.name }}</h1>
+                <p>Occupation: {{ x.occupation }}</p>
+                <p>Salary: {{ x.salary }} </p>
+                <p>Address: {{ x.address }} </p>
+                <p>Cellphone Number: {{ x.cpno }} </p>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

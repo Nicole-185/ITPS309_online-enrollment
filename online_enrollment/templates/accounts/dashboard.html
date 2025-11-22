@@ -1,0 +1,184 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<!-- MAIN NAVBAR -->
+<nav class="navbar">
+    <div class="nav-brand">Admin Dashboard</div>
+    <ul class="nav-links">
+        <li><a href="{% url 'dashboard' %}">Home</a></li>
+        <li><a href="{% url 'logout_user' %}">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="welcome-message">
+        <h2>Welcome, {{ user.username }}!</h2>
+    </div>
+
+    <!-- STUDENT INFO CARD -->
+    <div class="card">
+
+        <!-- Mini Navbar -->
+        <div class="sub-navbar">
+            <span>Student Information</span>
+            <ul>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Add</a></li>
+                <li><a href="#">Edit</a></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+                <th>Department</th>
+                <th>Year</th>
+                <th>Email</th>
+            </tr>
+            {% for s in students %}
+            <tr>
+                <td>{{ s.name }}</td>
+                <td>{{ s.studid }}</td>
+                <td>{{ s.department }}</td>
+                <td>{{ s.year }}</td>
+                <td>{{ s.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- EDUCATIONAL BACKGROUND CARD -->
+    <div class="card">
+
+        <!-- Mini Navbar -->
+        <div class="sub-navbar green">
+            <span>Educational Background</span>
+            <ul>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Add</a></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>School</th>
+                <th>Address</th>
+                <th>Year</th>
+                <th>Attainment</th>
+            </tr>
+            {% for e in education %}
+            <tr>
+                <td>{{ e.level }}</td>
+                <td>{{ e.school }}</td>
+                <td>{{ e.address }}</td>
+                <td>{{ e.year }}</td>
+                <td>{{ e.attainment }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- ACCOUNT CARD -->
+    <div class="card">
+
+        <div class="sub-navbar yellow">
+            <span>Accounts</span>
+            <ul>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Manage</a></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Student ID</th>
+                <th>Contact No.</th>
+            </tr>
+            {% for a in accounts %}
+            <tr>
+                <td>{{ a.username }}</td>
+                <td>{{ a.email }}</td>
+                <td>{{ a.studid }}</td>
+                <td>{{ a.cpno }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- FAMILY BACKGROUND CARD -->
+    <div class="card">
+
+        <div class="sub-navbar red">
+            <span>Family Background</span>
+            <ul>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Add</a></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Occupation</th>
+                <th>Salary</th>
+                <th>Address</th>
+                <th>Contact No.</th>
+            </tr>
+            {% for f in families %}
+            <tr>
+                <td>{{ f.name }}</td>
+                <td>{{ f.occupation }}</td>
+                <td>{{ f.salary }}</td>
+                <td>{{ f.address }}</td>
+                <td>{{ f.cpno }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- SUBJECTS CARD -->
+    <div class="card">
+
+        <div class="sub-navbar blue">
+            <span>Subjects</span>
+            <ul>
+                <li><a href="#">View</a></li>
+                <li><a href="#">Add</a></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Units</th>
+                <th>Schedule</th>
+                <th>Instructor</th>
+            </tr>
+            {% for s in subjects %}
+            <tr>
+                <td>{{ s.code }}</td>
+                <td>{{ s.name }}</td>
+                <td>{{ s.units }}</td>
+                <td>{{ s.schedule }}</td>
+                <td>{{ s.inst }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
